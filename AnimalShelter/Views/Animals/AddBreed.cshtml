@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelter.Models.Animal
+
+<h2>Add a Breed</h2>
+
+<h4>Add a Breed to this task: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.AnimalId)
+
+    @Html.Label("Select Breed")
+    @Html.DropDownList("BreedId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

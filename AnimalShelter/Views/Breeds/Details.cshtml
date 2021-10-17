@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelter.Models.Breed;
+
+<h2>Breed Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Breed does not contain any Animals</p>
+}
+else
+{
+  <h4>Animals the Breed contains:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Animal.Name</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to Breeds", "Index")</p>
+<p>@Html.ActionLink("Edit Breed", "Edit", new { id = Model.BreedId })</p>
+<p>@Html.ActionLink("Delete Breed", "Delete", new { id = Model.BreedId })</p>

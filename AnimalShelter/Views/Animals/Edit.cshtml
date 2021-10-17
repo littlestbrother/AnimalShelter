@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelter.Models.Animal
+
+<h2>Edit @Html.DisplayFor(model => model.Name)</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.AnimalId)
+    <p>@Html.LabelFor(model => model.Name):</p>
+    @Html.EditorFor(model => model.Name)
+    <br><br>
+    <p>@Html.LabelFor(model => model.Year):</p>
+    @Html.EditorFor(model => model.Year)
+    <input type="submit" value="Save" />
+}
+<br>
+<p>@Html.ActionLink("Back to list", "Index")</p>

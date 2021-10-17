@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using AnimalShelter.Models;
+
+<h1>Breeds</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No Breeds have been added yet!</h3>
+} 
+
+<ul>
+  @foreach(Breed Breed in Model)
+  {
+    <li>@Html.ActionLink($"{Breed.Name}", "Details", new { id = Breed.BreedId })</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add new Breed", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
